@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVCE Portal</title>
+
+<link rel="stylesheet" href="homestyle.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2 class="logo">SVCE Study Hub</h2>
+
+  <button onclick="showHome()">Home</button>
+  <button onclick="showNotes()">Notes</button>
+  <button onclick="showQP()">Question Papers</button>
+  <button onclick="showlab()">Lab</button>
+  <button onclick="showUpload()">Upload</button>
+  <button onclick="showProfile()">Profile</button>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<!-- HOME -->
+<div class="main" id="homePage">
+
+  <!-- LEFT (SEARCH) -->
+  <div class="left">
+    <div class="search-box">
+  <input type="text" id="searchInput" placeholder="Enter subject name or code...">
+  <button onclick="searchNotes()">Search</button>
+</div>
+  </div>
+
+  <!-- RIGHT (TITLE) -->
+  <div class="right">
+    <h1 class="hero-title">
+      Your SVCE <br>
+      <span>Study Hub.</span>
+    </h1>
+  </div>
+</div>
+
+<!-- NOTES / QP -->
+<div class="container" id="yearPage" style="display:none;">
+  <div class="card" id="mainCard"></div>
+</div>
+
+<script src="subjects-data.js"></script>
+<script src="homescript.js"></script>
+
+</body>
+</html>

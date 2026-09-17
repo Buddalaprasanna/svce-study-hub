@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subject Modules</title>
+<link rel="stylesheet" href="subject.css">
+<!-- Google Fonts for a cleaner look -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- BACK BUTTON -->
+<a href="home.html" class="back-btn" title="Back to Home">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5"/>
+    <path d="M12 19l-7-7 7-7"/>
+  </svg>
+  <span>Back</span>
+</a>
+
+<div class="container">
+  <!-- SUBJECT TITLE -->
+  <div class="page-header">
+    <div class="header-icon">📚</div>
+    <h1 id="title"></h1>
+    <p class="subtitle">Select a module to view uploaded notes & resources</p>
+  </div>
+
+  <!-- MODULE CARDS -->
+  <div class="modules">
+    <div class="card" onclick="showModule('module1')">
+      <div class="card-number">01</div>
+      <div class="card-content">
+        <h3>Module 1</h3>
+        <p class="card-desc">Notes, slides & resources</p>
+      </div>
+      <div class="card-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModule('module2')">
+      <div class="card-number">02</div>
+      <div class="card-content">
+        <h3>Module 2</h3>
+        <p class="card-desc">Notes, slides & resources</p>
+      </div>
+      <div class="card-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModule('module3')">
+      <div class="card-number">03</div>
+      <div class="card-content">
+        <h3>Module 3</h3>
+        <p class="card-desc">Notes, slides & resources</p>
+      </div>
+      <div class="card-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModule('module4')">
+      <div class="card-number">04</div>
+      <div class="card-content">
+        <h3>Module 4</h3>
+        <p class="card-desc">Notes, slides & resources</p>
+      </div>
+      <div class="card-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModule('module5')">
+      <div class="card-number">05</div>
+      <div class="card-content">
+        <h3>Module 5</h3>
+        <p class="card-desc">Notes, slides & resources</p>
+      </div>
+      <div class="card-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FILES OVERLAY PANEL -->
+<div id="filesOverlay" class="files-overlay hidden">
+  <div class="files-panel">
+    <div class="panel-header">
+      <div class="panel-title-group">
+        <div class="panel-icon">📂</div>
+        <div>
+          <h2 id="moduleTitle"></h2>
+          <p class="panel-subtitle">Uploaded files for this module</p>
+        </div>
+      </div>
+      <button class="close-btn" onclick="closePanel()" title="Close">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6L6 18"/><path d="M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="fileList" class="file-list"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="subjects-data.js"></script>
+<script src="subject.js"></script>
+</body>
+</html>

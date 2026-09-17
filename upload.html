@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload - SVCE Study Hub</title>
+<link rel="stylesheet" href="homestyle.css">
+<style>
+  .upload-card{
+    max-width: 480px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .upload-card h2{
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .upload-card label{
+    display:block;
+    margin: 14px 0 6px;
+    font-size: 14px;
+    color:#ddd;
+  }
+  .upload-card select,
+  .upload-card input[type="file"]{
+    width:100%;
+    padding: 12px;
+    border-radius: 10px;
+    border:none;
+    background:#0f172a;
+    color:white;
+    outline:none;
+  }
+  .upload-card button{
+    width:100%;
+    margin-top: 22px;
+    padding: 14px;
+    border:none;
+    border-radius: 12px;
+    background: linear-gradient(135deg,#3b82f6,#06b6d4);
+    color:white;
+    font-weight:600;
+    font-size:16px;
+    cursor:pointer;
+  }
+  .upload-card button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+  #uploadStatus{
+    margin-top: 14px;
+    text-align:center;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <h2 class="logo">SVCE Study Hub</h2>
+  <button onclick="window.location.href='home.html'">Home</button>
+  <button onclick="window.location.href='profile.html'">Profile</button>
+</div>
+
+<div class="upload-card">
+  <h2>Upload Study Material</h2>
+
+  <label for="subjectSelect">Subject</label>
+  <select id="subjectSelect"></select>
+
+  <label for="moduleSelect">Module</label>
+  <select id="moduleSelect">
+    <option value="module1">Module 1</option>
+    <option value="module2">Module 2</option>
+    <option value="module3">Module 3</option>
+    <option value="module4">Module 4</option>
+    <option value="module5">Module 5</option>
+  </select>
+
+  <label for="fileInput">File (PDF / PPT / DOC)</label>
+  <input type="file" id="fileInput" accept=".pdf,.ppt,.pptx,.doc,.docx">
+
+  <label for="adminKeyInput">Admin Key</label>
+  <input type="password" id="adminKeyInput" placeholder="Only you should know this">
+
+  <button onclick="uploadFile()">Upload</button>
+
+  <p id="uploadStatus"></p>
+</div>
+
+<script src="config.js"></script>
+<script src="subjects-data.js"></script>
+<script src="upload.js"></script>
+</body>
+</html>

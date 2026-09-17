@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVCE Profile</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+/* BODY */
+body{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#0f172a;
+overflow:hidden;
+position:relative;
+padding:20px;
+}
+
+/* BACKGROUND */
+body::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("svce.png") center center no-repeat;
+background-size:cover;
+opacity:0.12;
+animation:logoMove 10s ease-in-out infinite;
+}
+
+@keyframes logoMove{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+/* CARD */
+.card{
+position:relative;
+z-index:2;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+padding:40px;
+border-radius:20px;
+width:90%;
+max-width:380px;
+text-align:center;
+color:white;
+box-shadow:0 30px 60px rgba(0,0,0,0.4);
+animation:cardRise 1.2s ease forwards;
+}
+
+@keyframes cardRise{
+from{opacity:0; transform:translateY(60px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* PROFILE IMAGE */
+img{
+width:95px;
+height:95px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid white;
+margin-bottom:10px;
+}
+
+/* FIXED FILE INPUT */
+input[type="file"]{
+margin-top:10px;
+color:white;
+font-size:12px;
+background:transparent;
+}
+
+/* TEXT */
+h2{
+margin:10px 0;
+}
+
+p{
+color:#ddd;
+margin-bottom:10px;
+}
+
+/* BUTTONS */
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+transition:0.3s;
+}
+
+.home{
+background:linear-gradient(45deg,#4facfe,#00f2fe);
+color:white;
+}
+
+.logout{
+background:linear-gradient(45deg,#ff4d4d,#ff9966);
+color:white;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+@media (max-width:480px){
+.card{
+padding:30px;
+}
+h2{
+font-size:20px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- FIXED IMAGE -->
+<img id="profilePic" src="https://via.placeholder.com/100" alt="Profile">
+
+<h2 id="name">Loading...</h2>
+<p>SVCE Student Portal</p>
+
+<input type="file" accept="image/*" onchange="loadImage(event)">
+
+<button class="home" onclick="goHome()">Go Home</button>
+<button class="logout" onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+
+/* FIXED LOGIN CHECK (no redirect error) */
+const username = localStorage.getItem("username");
+
+if(!username){
+    document.getElementById("name").innerText = "Guest User";
+} else {
+    document.getElementById("name").innerText = username;
+}
+
+/* LOAD SAVED PROFILE IMAGE */
+const savedImage = localStorage.getItem("profilePic");
+if(savedImage){
+    document.getElementById("profilePic").src = savedImage;
+}
+
+/* UPLOAD IMAGE */
+function loadImage(event){
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(){
+        const imgData = reader.result;
+        document.getElementById("profilePic").src = imgData;
+        localStorage.setItem("profilePic", imgData);
+    }
+
+    if(file){
+        reader.readAsDataURL(file);
+    }
+}
+
+/* GO HOME */
+function goHome(){
+    window.location.href = "home.html";
+}
+
+/* LOGOUT */
+function logout(){
+    localStorage.removeItem("username");
+    localStorage.removeItem("profilePic");
+    window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>
